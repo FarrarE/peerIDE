@@ -7,7 +7,7 @@ import './styles/index.css';
 
 function Pages(props) {
     const listItems = props.files.map((file) => (
-        <Tab><label id={file.fileName}>{file.fileName}</label></Tab>
+        <Tab><input type="text" value={file.fileName} readonly="true" ondblclick="this.readOnly='';"/></Tab>
     ));
 
     const panelItems = props.files.map((file) => (
@@ -18,7 +18,7 @@ function Pages(props) {
 
     return (
         <Tabs id="file-tabs">
-            <TabList>
+            <TabList id="tab-list">
                 {listItems}
                 <Tab>
                     <GoPlus onClick={props.newFile} />

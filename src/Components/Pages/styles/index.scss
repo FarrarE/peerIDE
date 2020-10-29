@@ -1,6 +1,16 @@
 #file-tabs {
     margin-top: 4rem;
     background-color: #f2f2f2;
+    #tab-list{
+        input{
+            border:hidden;
+            width:4rem;
+            padding:.1rem;
+            padding-left:.4rem;
+            outline-color:grey;
+            outline-width:thin;
+        }
+    }
 }
 
 // react tab css
@@ -25,12 +35,19 @@
         padding: 6px 12px;
         cursor: pointer;
         border-radius: 5px 5px 0 0;
+        input{
+            color:grey;
+            background-color: transparent;
+        }
+
 
         &--selected {
             background: #fff;
             border-color: #aaa;
-            color: black;
             border-radius: 5px 5px 0 0;
+            input{
+                color:black;
+            }
         }
 
         &--disabled {

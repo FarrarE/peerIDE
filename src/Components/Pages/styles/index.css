@@ -3,6 +3,15 @@
   background-color: #f2f2f2;
 }
 
+#file-tabs #tab-list input {
+  border: hidden;
+  width: 4rem;
+  padding: .1rem;
+  padding-left: .4rem;
+  outline-color: grey;
+  outline-width: thin;
+}
+
 .react-tabs {
   -webkit-tap-highlight-color: transparent;
 }
@@ -26,11 +35,19 @@
   border-radius: 5px 5px 0 0;
 }
 
+.react-tabs__tab input {
+  color: grey;
+  background-color: transparent;
+}
+
 .react-tabs__tab--selected {
   background: #fff;
   border-color: #aaa;
-  color: black;
   border-radius: 5px 5px 0 0;
+}
+
+.react-tabs__tab--selected input {
+  color: black;
 }
 
 .react-tabs__tab--disabled {
