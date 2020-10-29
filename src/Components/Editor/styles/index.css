@@ -1,5 +1,12 @@
 #editor-wrapper {
-  background: black;
   height: 100%;
+  width: 100%;
+  border: 0.1rem solid grey;
+  background: #f8f8f8;
+}
+
+#editor-wrapper .DraftEditor-root {
+  height: 100%;
+  text-align: left;
 }
 /*# sourceMappingURL=index.css.map */

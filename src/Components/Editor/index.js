@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {Editor, EditorState} from 'draft-js';
+import './styles/index.css';
 
 function EditWindow() {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
@@ -27,5 +28,6 @@ function EditWindow() {
     </div>
   );
 }
+
 
 export default EditWindow;
