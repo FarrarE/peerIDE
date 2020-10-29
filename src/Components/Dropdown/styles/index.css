@@ -1,9 +1,10 @@
-#dropdown-wrapper .dropdown {
+.dropdown {
   position: relative;
   display: inline-block;
+  margin: .5rem;
 }
 
-#dropdown-wrapper .dropdown-content {
+.dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -13,7 +14,7 @@
   z-index: 1;
 }
 
-#dropdown-wrapper .dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
   display: block;
 }
 /*# sourceMappingURL=index.css.map */

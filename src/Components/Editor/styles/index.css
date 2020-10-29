@@ -1,1 +1,6 @@
-/* No CSS *//*# sourceMappingURL=index.css.map */
+#editor-wrapper {
+  border-top-style: solid;
+  border-width: .5rem;
+  border-color: #e4e4e4;
+}
+/*# sourceMappingURL=index.css.map */

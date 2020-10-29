@@ -1,27 +1,39 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import Dropdown from '../Dropdown'
+import { AiOutlineHome } from 'react-icons/ai';
+import './styles/index.css';
 
 function Header() {
-    useEffect(() => {
-    }, []);
+
     return (
         <div id="header-wrapper">
-            <div>
-                <Dropdown title="File" />
+            <div id="nav-left">
+                <div id="home">
+                    <AiOutlineHome />
+                </div>
+                <div id="options">
+                    <div>
+                        <Dropdown title="File" />
+                    </div>
+                    <div>
+                        <Dropdown title="Edit" />
+                    </div>
+                    <div>
+                        <Dropdown title="View" />
+                    </div>
+                    <div>
+                        <Dropdown title="Run" />
+                    </div>
+                    <div>
+                        <Dropdown title="Help" />
+                    </div>
+                </div>
             </div>
-            <div>
-                <Dropdown title="Edit" />
-            </div>
-            <div>
-                <Dropdown title="View" />
-            </div>
-            <div>
-                <Dropdown title="Run" />
-            </div>
-            <div>
-                <Dropdown title="Help" />
+            <div id="nav-right">
+                <div id="login">
+                    Login
+                </div>
             </div>
         </div>
     );

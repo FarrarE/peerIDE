@@ -22,6 +22,9 @@ function EditWindow() {
         onChange={onChange}
         name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}
+        showPrintMargin={false}
+        height="95vh"
+        width="100%"
       />
     </div>
   );
