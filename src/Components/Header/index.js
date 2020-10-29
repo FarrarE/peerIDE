@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dropdown from '../Dropdown'
 import { AiOutlineHome } from 'react-icons/ai';
+import { ImLink } from 'react-icons/im';
 import './styles/index.css';
 
 function Header() {
@@ -31,6 +32,9 @@ function Header() {
                 </div>
             </div>
             <div id="nav-right">
+                <div id="link">
+                    <ImLink />
+                </div>
                 <div id="login">
                     Login
                 </div>
