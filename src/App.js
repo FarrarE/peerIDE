@@ -1,37 +1,28 @@
 import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { GoPlus } from 'react-icons/go';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Header from './Components/Header';
-import Editor from './Components/Editor'
+import Pages from './Components/Pages';
 import './App.css';
 
 function App() {
+  const [files, setFiles] = useState([{fileName:"index1.js"},{fileName:"index.css"}]);
 
 
   useEffect(() => {
   }, []);
 
+  function newFileHandler(){
+    if(!files)
+      return;
 
+    let newList = [...files];
+    newList.push({fileName:"NewFile.txt"});
+    setFiles(newList);
+  }
   return (
     <div className="App">
       <Header />
-
-      <Tabs id="file-tabs">
-        <TabList>
-          <Tab id="tab-list">index.js</Tab>
-          <Tab>index.css</Tab>
-          <Tab>
-            <GoPlus />
-          </Tab>
-        </TabList>
-        <TabPanel>
-          <Editor />
-        </TabPanel>
-        <TabPanel>
-          <h2>Any content 2</h2>
-        </TabPanel>
-      </Tabs>
+      <Pages files={files} newFile={newFileHandler} />
     </div>
   );
 }

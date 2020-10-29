@@ -11,7 +11,7 @@ function Header(props) {
             <div class="dropdown">
                 <span>{props.title}</span>
                 <div class="dropdown-content">
-                    <p>Hello World!</p>
+                    <p>Work In Progress</p>
                 </div>
             </div>
         </div>
