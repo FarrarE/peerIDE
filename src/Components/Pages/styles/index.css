@@ -12,6 +12,22 @@
   outline-width: thin;
 }
 
+#add-btn {
+  border-radius: 0.25rem;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  -webkit-box-shadow: 3px 3px 3px #c9c9c9;
+          box-shadow: 3px 3px 3px #c9c9c9;
+  padding: .1rem;
+  margin: -.2rem;
+  color: grey;
+}
+
+#add-btn:hover {
+  color: black;
+  -webkit-box-shadow: 5px 5px 5px #cecece;
+          box-shadow: 5px 5px 5px #cecece;
+}
+
 .react-tabs {
   -webkit-tap-highlight-color: transparent;
 }

@@ -14,21 +14,11 @@ function Header() {
                     <AiOutlineHome />
                 </div>
                 <div id="options">
-                    <div>
-                        <Dropdown title="File" />
-                    </div>
-                    <div>
-                        <Dropdown title="Edit" />
-                    </div>
-                    <div>
-                        <Dropdown title="View" />
-                    </div>
-                    <div>
-                        <Dropdown title="Run" />
-                    </div>
-                    <div>
-                        <Dropdown title="Help" />
-                    </div>
+                    <Dropdown title="File" />
+                    <Dropdown title="Edit" />
+                    <Dropdown title="View" />
+                    <Dropdown title="Run" />
+                    <Dropdown title="Help" />
                 </div>
             </div>
             <div id="nav-right">

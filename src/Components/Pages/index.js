@@ -21,7 +21,7 @@ function Pages(props) {
             <TabList id="tab-list">
                 {listItems}
                 <Tab>
-                    <GoPlus onClick={props.newFile} />
+                    <GoPlus id="add-btn" onClick={props.newFile} />
                 </Tab>
             </TabList>
             {panelItems}
