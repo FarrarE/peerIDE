@@ -6,7 +6,8 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0.5rem;
-  color: grey;
+  color: black;
+  background-color: #f2f2f2;
 }
 
 #header-wrapper #nav-left {
@@ -22,14 +23,19 @@
   font-size: 1.5rem;
   padding: 0.1rem;
   border-radius: 0.25rem;
-  border: 0.1rem solid grey;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  -webkit-box-shadow: 7px 7px 6px #c9c9c9;
+          box-shadow: 7px 7px 6px #c9c9c9;
+  margin-right: 1rem;
 }
 
 #header-wrapper #nav-right #login {
   font-weight: bold;
-  border: 0.1rem solid grey;
   padding: 0.5rem;
   border-radius: 0.25rem;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  -webkit-box-shadow: 7px 7px 6px #c9c9c9;
+          box-shadow: 7px 7px 6px #c9c9c9;
 }
 
 #header-wrapper #options {
