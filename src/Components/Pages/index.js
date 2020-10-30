@@ -5,50 +5,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { GoPlus } from 'react-icons/go';
 import './styles/index.css';
 
-const languages = [
-    "javascript",
-    "java",
-    "python",
-    "xml",
-    "ruby",
-    "sass",
-    "markdown",
-    "mysql",
-    "json",
-    "html",
-    "handlebars",
-    "golang",
-    "csharp",
-    "elixir",
-    "typescript",
-    "css"
-];
-
-const themes = [
-    "monokai",
-    "github",
-    "tomorrow",
-    "kuroir",
-    "twilight",
-    "xcode",
-    "textmate",
-    "solarized_dark",
-    "solarized_light",
-    "terminal"
-];
-
-languages.forEach(lang => {
-    require(`ace-builds/src-noconflict/mode-${lang}`);
-    require(`ace-builds/src-noconflict/snippets/${lang}`);
-});
-
-themes.forEach(theme => require(`ace-builds/src-noconflict/theme-${theme}`));
-
 
 function Pages(props) {
-    const [theme, setTheme] = useState(themes[0])
-    const [mode, setMode] = useState(languages[0]);
-
     let content;
 
     useEffect(() => {
@@ -56,17 +14,8 @@ function Pages(props) {
     }, []);
 
 
-
-    function getMode(fileName) {
-        if (!fileName)
-            return;
-
-        console.log(fileName);
-        return "java";
-    }
-
     const listItems = props.files.map((file) => (
-        <Tab key={"tab" + props.key} ><input type={"text"} value={file.fileName} readOnly={true} onDoubleClick={(e) => { e.target.readOnly = false }} /></Tab>
+        <Tab onClick={onChangeHandler} key={"tab" + props.key} ><input type={"text"} value={file.fileName} readOnly={true} onDoubleClick={(e) => { e.target.readOnly = false }} /></Tab>
     ));
 
     const panelItems = props.files.map((file) => (
@@ -80,11 +29,15 @@ function Pages(props) {
         </TabPanel>
     ));
 
+    function onChangeHandler(event){
+        alert(event.target.key)
+    }
+
     return (
         <Tabs id="file-tabs">
             <TabList id="tab-list">
                 {listItems}
-                <Tab>
+                <Tab >
                     <GoPlus id="add-btn" onClick={props.newFile} />
                 </Tab>
             </TabList>
