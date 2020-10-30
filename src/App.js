@@ -7,6 +7,7 @@ import './App.css';
 
 function App() {
   const [files, setFiles] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState(false);
 
   useEffect(() => {
   }, []);
@@ -15,10 +16,18 @@ function App() {
     if (!files)
       return;
 
+    if(!selectedIndex){
+      setSelectedIndex(0);
+    }
+
     let newList = [...files];
     let newFile = { fileName: "NewFile.txt", key: uuidv4(), index: null, content: "" }
     newList.push(newFile);
     setFiles(newList);
+  }
+
+  function setSelectedHandler(index){
+    setSelectedIndex(index);
   }
 
   function onChangeHandler(content, key, index) {
@@ -30,11 +39,21 @@ function App() {
       }
     }
     setFiles(newList);
-    console.log(content, key, index)
   }
 
-  const downloadToFile = (content, filename, contentType = 'text/plain') => {
-    alert("ping")
+  const downloadToFile = () => {
+    if(!files[0]){
+      alert("No File selected");
+      return;
+    }
+    const a = document.createElement('a');
+    const file = new Blob([files[selectedIndex].content], {type: 'text/plain'});
+  
+    a.href= URL.createObjectURL(file);
+    a.download = files[selectedIndex].fileName;
+    a.click();
+  
+    URL.revokeObjectURL(a.href);
   };
 
   return (
@@ -46,6 +65,7 @@ function App() {
         files={files} 
         newFile={newFileHandler}
         onChange={onChangeHandler} 
+        setSelected={setSelectedHandler}
       />
     </div>
   );

@@ -32,8 +32,8 @@ function Pages(props) {
     ));
 
     return (
-        <Tabs id="file-tabs">
-            <TabList id="tab-list">
+        <Tabs id="file-tabs" onSelect={tabIndex => props.setSelected(tabIndex)}>
+            <TabList id="tab-list" >
                 {listItems}
                 <Tab>
                     <GoPlus id="add-btn" onClick={props.newFile} />
