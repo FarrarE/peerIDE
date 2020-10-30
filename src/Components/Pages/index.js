@@ -6,8 +6,9 @@ import { GoPlus } from 'react-icons/go';
 import './styles/index.css';
 
 function Pages(props) {
+
     const listItems = props.files.map((file) => (
-        <Tab><input type="text" value={file.fileName} readonly="true" ondblclick="this.readOnly='';"/></Tab>
+        <Tab><input type="text" value={file.fileName} readonly="true" onDoubleClick={(e) => { e.target.readOnly = false }} /></Tab>
     ));
 
     const panelItems = props.files.map((file) => (
