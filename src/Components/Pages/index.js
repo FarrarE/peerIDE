@@ -5,15 +5,33 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { GoPlus } from 'react-icons/go';
 import './styles/index.css';
 
+
 function Pages(props) {
+    const [theme, setTheme] = useState("github")
+    useEffect(() => {
+
+    }, []);
+
+    function getMode(fileName) {
+        if (!fileName)
+            return;
+
+        console.log(fileName);
+        return "java";
+    }
 
     const listItems = props.files.map((file) => (
-        <Tab><input type="text" value={file.fileName} readonly="true" onDoubleClick={(e) => { e.target.readOnly = false }} /></Tab>
+        <Tab key={"tab"+props.key} ><input type={"text"} value={file.fileName} readOnly={true} onDoubleClick={(e) => { e.target.readOnly = false }} /></Tab>
     ));
 
     const panelItems = props.files.map((file) => (
-        <TabPanel>
-            <Editor file={file} />
+        <TabPanel key={"panel"+props.key}>
+            <Editor
+                file={file}
+                name={props.key}
+                mode={getMode(props.fileName)}
+                theme={theme}
+            />
         </TabPanel>
     ));
 
@@ -26,6 +44,7 @@ function Pages(props) {
                 </Tab>
             </TabList>
             {panelItems}
+            <TabPanel></TabPanel>
         </Tabs>
     );
 }
