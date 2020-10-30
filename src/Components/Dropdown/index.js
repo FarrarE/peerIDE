@@ -8,9 +8,9 @@ function Header(props) {
     }, []);
 
     const File =    <div className="dropdown-content">
-                        <div className="option"><p>Open File</p></div>
+                        <div className="option" ><p>Open File</p></div>
                         <hr></hr>
-                        <div className="option"><p>Save As...</p></div>
+                        <div className="option" onClick={props.download}><p>Save As...</p></div>
                         <hr></hr>
                         <div className="option"><p>Preferences</p></div>
                     </div>

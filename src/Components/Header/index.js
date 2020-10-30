@@ -5,7 +5,7 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { ImLink } from 'react-icons/im';
 import './styles/index.css';
 
-function Header() {
+function Header(props) {
 
     return (
         <div id="header-wrapper">
@@ -14,7 +14,7 @@ function Header() {
                     <AiOutlineHome />
                 </div>
                 <div id="options">
-                    <Dropdown title="File" />
+                    <Dropdown download={props.download} title="File" />
                     <Dropdown title="Edit" />
                     <Dropdown title="View" />
                     <Dropdown title="Run" />
