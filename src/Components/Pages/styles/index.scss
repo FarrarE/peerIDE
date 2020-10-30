@@ -1,6 +1,5 @@
 #file-tabs {
     margin-top: 4rem;
-    background-color: #f2f2f2;
     #tab-list{
         input{
             border:hidden;
@@ -17,15 +16,10 @@
 
 #add-btn{
     border-radius: 0.25rem;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    box-shadow: 3px 3px 3px #c9c9c9;
+    background: $background;
     padding:.1rem;
     margin:-.2rem;
-    color:grey;
-    &:hover{
-        color:black;
-        box-shadow: 5px 5px 5px #cecece;
-    }
+    color:inherit;
 }
 
 // react tab css
@@ -57,11 +51,11 @@
 
 
         &--selected {
-            background: #fff;
+            background: $background;
             border-color: #aaa;
             border-radius: 5px 5px 0 0;
             input{
-                color:black;
+                color:$color;
             }
         }
 

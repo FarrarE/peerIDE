@@ -1,1 +1,6 @@
+@import "./Themes/index.scss";
 
+.App{
+    color:$color;
+    background-color: $background;
+}

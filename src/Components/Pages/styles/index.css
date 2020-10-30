@@ -1,6 +1,6 @@
 #file-tabs {
   margin-top: 4rem;
-  background-color: #f2f2f2;
+  background-color: #272822;
 }
 
 #file-tabs #tab-list input {
@@ -16,18 +16,14 @@
 
 #add-btn {
   border-radius: 0.25rem;
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
-  -webkit-box-shadow: 3px 3px 3px #c9c9c9;
-          box-shadow: 3px 3px 3px #c9c9c9;
+  background: #272822;
   padding: .1rem;
   margin: -.2rem;
   color: grey;
 }
 
 #add-btn:hover {
-  color: black;
-  -webkit-box-shadow: 5px 5px 5px #cecece;
-          box-shadow: 5px 5px 5px #cecece;
+  color: white;
 }
 
 .react-tabs {
@@ -59,13 +55,13 @@
 }
 
 .react-tabs__tab--selected {
-  background: #fff;
+  background: #272822;
   border-color: #aaa;
   border-radius: 5px 5px 0 0;
 }
 
 .react-tabs__tab--selected input {
-  color: black;
+  color: white;
 }
 
 .react-tabs__tab--disabled {

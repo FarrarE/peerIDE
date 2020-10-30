@@ -1,3 +1,5 @@
+@import "../../../Themes/index.scss";
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -7,10 +9,13 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 12px 16px;
+    background: $background;
     z-index: 1;
+    p{
+        font-size: .7rem;
+    }
 }
 
 .dropdown:hover .dropdown-content {
