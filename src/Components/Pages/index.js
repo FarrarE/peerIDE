@@ -17,7 +17,7 @@ function Pages(props) {
     ));
 
     const panelItems = props.files.map((file, index) => (
-        <TabPanel key={"panel" + props.key}>
+        <TabPanel key={"panel" + file.key}>
 
             <Editor
                 file={file}
