@@ -7,37 +7,35 @@ import './styles/index.css';
 
 
 function Pages(props) {
-    let content;
 
-    useEffect(() => {
-
-    }, []);
-
+    function onChange(fileName, key, content, index) {
+        props.onChange(content, key, index);
+    }
 
     const listItems = props.files.map((file) => (
-        <Tab onClick={onChangeHandler} key={"tab" + props.key} ><input type={"text"} value={file.fileName} readOnly={true} onDoubleClick={(e) => { e.target.readOnly = false }} /></Tab>
+        <Tab key={"tab" + file.key}>{file.fileName}</Tab>
     ));
 
-    const panelItems = props.files.map((file) => (
+    const panelItems = props.files.map((file, index) => (
         <TabPanel key={"panel" + props.key}>
+
             <Editor
                 file={file}
-                name={props.key}
+                name={file.key}
                 mode="jsx"
                 theme="monokai"
+                onChange={onChange}
+                content={file.content}
+                index={index}
             />
         </TabPanel>
     ));
-
-    function onChangeHandler(event){
-        alert(event.target.key)
-    }
 
     return (
         <Tabs id="file-tabs">
             <TabList id="tab-list">
                 {listItems}
-                <Tab >
+                <Tab>
                     <GoPlus id="add-btn" onClick={props.newFile} />
                 </Tab>
             </TabList>

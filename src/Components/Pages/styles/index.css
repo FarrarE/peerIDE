@@ -2,6 +2,12 @@
   margin-top: 4rem;
 }
 
+#file-tabs #tab-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 #file-tabs #tab-list input {
   border: hidden;
   width: 4rem;

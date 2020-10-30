@@ -1,6 +1,7 @@
 #file-tabs {
     margin-top: 4rem;
     #tab-list{
+        display: flex;
         input{
             border:hidden;
             width:4rem;

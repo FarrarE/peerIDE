@@ -18,9 +18,8 @@ function EditWindow(props) {
   let content;
   function onChange(newValue) {
     content = newValue;
-    console.log("change", newValue);
+    props.onChange(props.fileName, props.name, content, props.index);
   }
-
   return (
     <div id="editor-wrapper">
       <AceEditor
@@ -32,6 +31,7 @@ function EditWindow(props) {
         showPrintMargin={false}
         height="95vh"
         width="100%"
+        value={props.content}
       />
     </div>
   );

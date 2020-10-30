@@ -16,14 +16,27 @@ function App() {
       return;
 
     let newList = [...files];
-    let newFile = {fileName:"NewFile.txt", key: uuidv4()}
+    let newFile = {fileName:"NewFile.txt", key: uuidv4(), index: null, content:""}
     newList.push(newFile);
     setFiles(newList);
   }
+
+  function onChangeHandler(content, key, index){
+    let newList = [...files];
+    for(let i = 0;i < newList.length;++i){
+      if(newList[i].key === key){
+        newList[i].content = content;
+        newList[i].index = index;
+      }
+    }
+    setFiles(newList);
+    console.log(content,key,index)
+  }
+
   return (
     <div className="App">
       <Header />
-      <Pages files={files} newFile={newFileHandler} />
+      <Pages files={files} newFile={newFileHandler} onChange={onChangeHandler}/>
     </div>
   );
 }
