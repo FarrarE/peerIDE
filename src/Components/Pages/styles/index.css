@@ -19,13 +19,6 @@
   outline: none;
 }
 
-#add-btn {
-  border-radius: 0.25rem;
-  padding: .1rem;
-  margin: -.2rem;
-  color: inherit;
-}
-
 .react-tabs {
   -webkit-tap-highlight-color: transparent;
 }
