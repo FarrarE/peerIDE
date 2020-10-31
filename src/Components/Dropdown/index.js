@@ -18,7 +18,7 @@ function Header(props) {
 
     const Edit =
         <div className="dropdown-content">
-            <div className="option" ><p>Undo</p></div>
+            <div className="option" onClick={props.undo} ><p>Undo</p></div>
             <div className="option" onClick={props.download}><p>redo</p></div>
             <hr></hr>
             <div className="option"><p>Cut</p></div>

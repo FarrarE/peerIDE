@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { v4 as uuidv4 } from 'uuid';
 import Header from './Components/Header';
@@ -8,9 +8,12 @@ import './App.css';
 function App() {
   const [files, setFiles] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(false);
+  const [historyKey, setHistoryKey] = useState([]);
+  const [history, setHistory] = useState([]);
 
   useEffect(() => {
   }, []);
+
 
   function newFileHandler() {
     if (!files)
@@ -32,6 +35,9 @@ function App() {
 
   function onChangeHandler(content, key, index) {
     let newList = [...files];
+
+    updateHistory(key, content);
+
     for (let i = 0; i < newList.length; ++i) {
       if (newList[i].key === key) {
         newList[i].content = content;
@@ -41,6 +47,36 @@ function App() {
     setFiles(newList);
   }
 
+
+  // Updates the history state variable, tracking each change for each editor 
+  function updateHistory(key, content){
+    let length = history.length;
+    let index = -1;
+
+    // Base state, create history log
+    if(!length){
+      setHistory([{key:key,log:[content]}]);
+    }else{
+    //Log exists so check for matching log
+      for(let i = 0; i < length;++i){
+        if(history[i].key === key){
+          index = i;
+        }
+      }
+      // update matching log content or add new log if there is no matching log
+      if(index > -1)
+        history[index].log.push(content)
+      else setHistory(history => [...history, {key:key,log:[content]}]);
+    }
+    console.log(history)
+  }
+
+  // dropdown menu event handlers
+
+  function uploadFileHandler(){
+  }
+
+  // download file
   const downloadToFile = () => {
     if(!files[0]){
       alert("No File selected");
@@ -56,10 +92,29 @@ function App() {
     URL.revokeObjectURL(a.href);
   };
 
+  function undoHandler(){
+  }
+
+  function redoHandler(){
+  }
+
+  function cutHandler(){
+  }
+
+  function copyHandler(){
+  }
+
+  function pasteHandler(){
+  }
+
+  const fileHandlers = {uploadFileHandler:uploadFileHandler, downloadToFile:downloadToFile};
+  const editHandlers = {undoHandler:undoHandler, redoHandler:redoHandler, cutHandler:cutHandler, copyHandler:copyHandler, pasteHandler:pasteHandler};
+
   return (
     <div className="App">
       <Header 
         download={downloadToFile}
+        editHandlers={editHandlers}
       />
       <Pages 
         files={files} 
