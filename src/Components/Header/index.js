@@ -15,7 +15,7 @@ function Header(props) {
                 </div>
                 <div id="options">
                     <Dropdown download={props.download} title="File" />
-                    <Dropdown title="Edit" editHandlers={props.editHandlers} />
+                    <Dropdown title="Edit" undo={props.undo} />
                     <Dropdown title="Preferences" />
                     <Dropdown title="Help" />
                 </div>

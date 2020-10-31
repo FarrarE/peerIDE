@@ -8,8 +8,8 @@ import './App.css';
 function App() {
   const [files, setFiles] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(false);
-  const [historyKey, setHistoryKey] = useState([]);
   const [history, setHistory] = useState([]);
+  const [historyTracker, setHistoryTracker] = useState(false);
 
   useEffect(() => {
   }, []);
@@ -93,6 +93,8 @@ function App() {
   };
 
   function undoHandler(){
+    if(!selectedIndex)
+      return;    
   }
 
   function redoHandler(){
@@ -107,14 +109,12 @@ function App() {
   function pasteHandler(){
   }
 
-  const fileHandlers = {uploadFileHandler:uploadFileHandler, downloadToFile:downloadToFile};
-  const editHandlers = {undoHandler:undoHandler, redoHandler:redoHandler, cutHandler:cutHandler, copyHandler:copyHandler, pasteHandler:pasteHandler};
 
   return (
     <div className="App">
       <Header 
         download={downloadToFile}
-        editHandlers={editHandlers}
+        undo={undoHandler}
       />
       <Pages 
         files={files} 
