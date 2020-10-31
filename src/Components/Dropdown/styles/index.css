@@ -9,13 +9,26 @@
   position: absolute;
   -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
-  background: #272822;
+  background: #75715e;
   z-index: 1;
+  width: 7rem;
 }
 
 .dropdown-content p {
-  font-size: .7rem;
+  padding: .5rem;
+  font-size: .8rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.dropdown-content :hover {
+  background-color: #66d9ef;
+  color: #272822;
+}
+
+.dropdown-content hr {
+  background-color: grey;
+  width: 6rem;
 }
 
 .dropdown:hover .dropdown-content {

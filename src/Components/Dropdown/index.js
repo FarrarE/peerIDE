@@ -11,9 +11,7 @@ function Header(props) {
         <div className="dropdown-content">
             <div className="option" ><p>Open File</p></div>
             <hr></hr>
-            <div className="option" onClick={props.download}><p>Save As...</p></div>
-            <hr></hr>
-            <div className="option"><p>Preferences</p></div>
+            <div className="option" onClick={props.download}><p>Download File</p></div>
         </div>
 
 
@@ -36,7 +34,6 @@ function Header(props) {
     const Help =
         <div className="dropdown-content">
             <div className="option" ><p>About</p></div>
-            <hr></hr>
         </div>
 
     const options = ["File", "Edit", "Preferences", "Help"];
