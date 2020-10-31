@@ -9,7 +9,7 @@ function App() {
   const [files, setFiles] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(false);
   const [history, setHistory] = useState([]);
-  const [historyTracker, setHistoryTracker] = useState(false);
+  const [redoIndex, setRedoIndex] = useState(false);
 
   useEffect(() => {
   }, []);
@@ -19,7 +19,7 @@ function App() {
     if (!files)
       return;
 
-    if(!selectedIndex){
+    if (!selectedIndex) {
       setSelectedIndex(0);
     }
 
@@ -29,13 +29,17 @@ function App() {
     setFiles(newList);
   }
 
-  function setSelectedHandler(index){
+  function setSelectedHandler(index) {
     setSelectedIndex(index);
   }
 
   function onChangeHandler(content, key, index) {
     let newList = [...files];
 
+    if(redoIndex !== false){
+      history[selectedIndex].log.splice(redoIndex, history[selectedIndex].log.length);
+      setRedoIndex(false);
+    }
     updateHistory(key, content);
 
     for (let i = 0; i < newList.length; ++i) {
@@ -49,77 +53,111 @@ function App() {
 
 
   // Updates the history state variable, tracking each change for each editor 
-  function updateHistory(key, content){
+  function updateHistory(key, content) {
     let length = history.length;
     let index = -1;
 
     // Base state, create history log
-    if(!length){
-      setHistory([{key:key,log:[content]}]);
-    }else{
-    //Log exists so check for matching log
-      for(let i = 0; i < length;++i){
-        if(history[i].key === key){
+    if (!length) {
+      setHistory([{ key: key, log: [content] }]);
+    } else {
+      //Log exists so check for matching log
+      for (let i = 0; i < length; ++i) {
+        if (history[i].key === key) {
           index = i;
         }
       }
       // update matching log content or add new log if there is no matching log
-      if(index > -1)
+      if (index > -1)
         history[index].log.push(content)
-      else setHistory(history => [...history, {key:key,log:[content]}]);
+      else setHistory(history => [...history, { key: key, log: [content] }]);
     }
     console.log(history)
   }
 
+
+  function historyIndexOf(key) {
+    let index = -1;
+    for (let i = 0; i < history.length; ++i) {
+      if (history[i].key === key)
+        index = i;
+    }
+    return index;
+  }
+
   // dropdown menu event handlers
 
-  function uploadFileHandler(){
+  function uploadFileHandler() {
   }
 
   // download file
   const downloadToFile = () => {
-    if(!files[0]){
+    if (!files[0]) {
       alert("No File selected");
       return;
     }
     const a = document.createElement('a');
-    const file = new Blob([files[selectedIndex].content], {type: 'text/plain'});
-  
-    a.href= URL.createObjectURL(file);
+    const file = new Blob([files[selectedIndex].content], { type: 'text/plain' });
+
+    a.href = URL.createObjectURL(file);
     a.download = files[selectedIndex].fileName;
     a.click();
-  
+
     URL.revokeObjectURL(a.href);
   };
 
-  function undoHandler(){
-    if(!selectedIndex)
-      return;    
+  function undoHandler() {
+    if (selectedIndex === false)
+      return;
+
+    if (history[selectedIndex] === undefined)
+      return;
+
+    let index;
+
+    if (redoIndex !== false) {
+      index = redoIndex;
+    } else  index = history[selectedIndex].log.length - 1;
+
+    if (index < 0)
+      return;
+
+
+    let newList = [...files];
+
+    newList[selectedIndex].content = history[selectedIndex].log[index - 1];
+    console.log(history[selectedIndex].log[index - 1])
+
+    if (redoIndex !== false) {
+      setRedoIndex(redoIndex - 1);
+    } else setRedoIndex(index);
+
+    setFiles(newList);
   }
 
-  function redoHandler(){
+  function redoHandler() {
   }
 
-  function cutHandler(){
+  function cutHandler() {
   }
 
-  function copyHandler(){
+  function copyHandler() {
   }
 
-  function pasteHandler(){
+  function pasteHandler() {
   }
 
 
   return (
     <div className="App">
-      <Header 
+      <Header
         download={downloadToFile}
         undo={undoHandler}
       />
-      <Pages 
-        files={files} 
+      <Pages
+        files={files}
         newFile={newFileHandler}
-        onChange={onChangeHandler} 
+        onChange={onChangeHandler}
         setSelected={setSelectedHandler}
       />
     </div>
