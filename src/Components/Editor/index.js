@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom';
 import AceEditor from "react-ace";
 import './styles/index.css';
 import themes from './themes';
+
 import modes from './modes';
+import 'ace-builds/src-min-noconflict/ext-searchbox';
 
 modes.forEach(lang => {
   require(`ace-builds/src-noconflict/mode-${lang}`);
