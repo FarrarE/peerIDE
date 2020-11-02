@@ -119,7 +119,7 @@ function App() {
       index = redoIndex;
     } else index = history[selectedIndex].log.length - 1;
 
-    if (index < 0){
+    if (index <= 0){
       return;
     }
 
@@ -145,7 +145,7 @@ function App() {
     let index;
 
     if (redoIndex !== false) {
-      index = redoIndex + 1;
+      index = redoIndex;
     } else return;
 
     if (index >= history[selectedIndex].log.length)
@@ -154,7 +154,7 @@ function App() {
     let newList = [...files];
 
     newList[selectedIndex].content = history[selectedIndex].log[index + 1];
-    console.log(history[selectedIndex].log[index + 1])
+    console.log(index, history[selectedIndex].log[index + 1])
 
     if (redoIndex !== false) {
       setRedoIndex(redoIndex + 1);
