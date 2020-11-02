@@ -37,7 +37,7 @@ function App() {
     let newList = [...files];
 
     if (redoIndex !== false) {
-      history[selectedIndex].log.splice(redoIndex, history[selectedIndex].log.length);
+      history[selectedIndex].log.splice(redoIndex + 1, history[selectedIndex].log.length);
       setRedoIndex(false);
     }
     updateHistory(key, content);
@@ -59,7 +59,7 @@ function App() {
 
     // Base state, create history log
     if (!length) {
-      setHistory([{ key: key, log: ["",content] }]);
+      setHistory([{ key: key, log: ["", content] }]);
     } else {
       //Log exists so check for matching log
       for (let i = 0; i < length; ++i) {
@@ -75,7 +75,6 @@ function App() {
     console.log(history)
   }
 
-
   function historyIndexOf(key) {
     let index = -1;
     for (let i = 0; i < history.length; ++i) {
@@ -90,6 +89,7 @@ function App() {
   function uploadFileHandler() {
   }
 
+  // FILE
   // download file
   const downloadToFile = () => {
     if (!files[0]) {
@@ -106,6 +106,9 @@ function App() {
     URL.revokeObjectURL(a.href);
   };
 
+
+  // EDIT
+
   function undoHandler() {
     if (selectedIndex === false)
       return;
@@ -119,14 +122,14 @@ function App() {
       index = redoIndex;
     } else index = history[selectedIndex].log.length - 1;
 
-    if (index <= 0){
+    if (index <= 0) {
       return;
     }
 
     let newList = [...files];
 
     newList[selectedIndex].content = history[selectedIndex].log[index - 1];
-    console.log(history[selectedIndex].log[index - 1])
+    console.log(index - 1, history[selectedIndex].log[index - 1])
 
     if (redoIndex !== false) {
       setRedoIndex(redoIndex - 1);
@@ -134,6 +137,7 @@ function App() {
 
     setFiles(newList);
   }
+
 
   function redoHandler() {
     if (selectedIndex === false)
