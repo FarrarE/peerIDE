@@ -22,7 +22,7 @@ function Header(props) {
             <div className="option" onClick={props.redo}><p>redo</p></div>
             <hr></hr>
             <div className="option"><p>Cut</p></div>
-            <div className="option"><p>Copy</p></div>
+            <div className="option" onClick={props.copy}><p>Copy</p></div>
             <div className="option"><p>Paste</p></div>
         </div>
 
