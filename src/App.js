@@ -130,7 +130,7 @@ function App() {
 
     if (redoIndex !== false) {
       setRedoIndex(redoIndex - 1);
-    } else setRedoIndex(index);
+    } else setRedoIndex(index - 1);
 
     setFiles(newList);
   }
