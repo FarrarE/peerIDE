@@ -1,44 +1,92 @@
 @import "./Themes/index.scss";
 
-.App{
-}
-
 .monokai{
     background-color: $monokai-background;
     color:$monokai-color;
+    .foreground{
+        background-color: $monokai-comment;
+        .option:hover{
+            background-color: $terminal-blue; 
+        }
+    }
+
 }
 
 .github{
     background-color: $github-background;
     color:$github-color;
+    .foreground{
+        background-color: $github-comment;
+        .option:hover{
+            background-color: $terminal-blue; 
+        }
+    }
+
 }
 
 .terminal{
     background-color: $terminal-background;
     color:$terminal-color;
+    .foreground{
+        background-color: $terminal-comment;
+        .option:hover{
+            background-color: $terminal-blue; 
+        }
+    }
 }
 
 .tomorrow{
     background-color: $tomorrow-background;
     color:$tomorrow-color;
+    .foreground{
+        background-color: $tomorrow-comment;
+        .option:hover{
+            background-color: $terminal-blue; 
+        }
+    }
 }
 
 .twilight{
     background-color: $twilight-background;
     color:$twilight-color;
+    .foreground{
+        background-color: $twilight-comment;
+        .option:hover{
+            background-color: $terminal-blue; 
+        }
+    }
 }
 
 .textmate{
     background-color: $textmate-background;
     color:$textmate-color;
+    .foreground{
+        background-color: $textmate-comment;
+        .option:hover{
+            background-color: $terminal-blue; 
+        }
+    }
 }
 
 .solarized_dark{
     background-color: $solarized_dark-background;
     color:$solarized_dark-color;
+    .foreground{
+        background-color: $solarized_dark-comment;
+        .option:hover{
+            background-color: $terminal-blue; 
+        }
+    }
 }
 
 .solarized_light{
     background-color: $solarized_light-background;
     color:$solarized_light-color;
+    .foreground{
+        background-color: $solarized_light-comment;
+        .option:hover{
+            background-color: $terminal-blue; 
+
+        }
+    }
 }

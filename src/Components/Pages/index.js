@@ -18,7 +18,6 @@ function Pages(props) {
 
     const panelItems = props.files.map((file, index) => (
         <TabPanel key={"panel" + file.key}>
-
             <Editor
                 file={file}
                 name={file.key}
@@ -33,13 +32,14 @@ function Pages(props) {
     ));
 
     return (
-        <Tabs id="file-tabs" onSelect={tabIndex => props.setSelected(tabIndex)}>
+        <Tabs id="file-tabs" onSelect={tabIndex => props.setSelected(tabIndex)} className={props.theme}>
             <TabList id="tab-list" >
                 {listItems}
                 <Tab>
                     <GoPlus id="add-btn" onClick={props.newFile} />
                 </Tab>
             </TabList>
+            <div id="starter-tab"></div>
             {panelItems}
             <TabPanel></TabPanel>
         </Tabs>
