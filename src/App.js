@@ -139,17 +139,14 @@ function App() {
     if (selectedIndex === false)
       return;
 
-    console.log("nope1")
     if (history[selectedIndex] === undefined)
       return;
-    console.log("nope2")
 
     let index;
 
     if (redoIndex !== false) {
       index = redoIndex + 1;
     } else return;
-    console.log("nope3")
 
     if (index >= history[selectedIndex].log.length)
       return;
