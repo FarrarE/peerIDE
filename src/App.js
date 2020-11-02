@@ -181,7 +181,7 @@ function App() {
 
 
   function setThemeHandler(event) {
-    console.log(event.target.innerHTML);
+      setTheme(event.target.innerHTML.toLowerCase())  
   }
 
 
