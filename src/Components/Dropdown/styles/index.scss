@@ -33,15 +33,17 @@
     }
 
     .side-menu {
-        display:none;
+        display: none;
         position: relative;
-        color:$color;
         .side-menu-content {
             position: absolute;
             background: $comment;
-
             right: -4rem;
             top: -2rem;
+            color: $color;
+        }
+        &:hover{
+            color: $background;;
         }
     }
 }

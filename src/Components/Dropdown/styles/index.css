@@ -39,7 +39,6 @@
 .dropdown-content .side-menu {
   display: none;
   position: relative;
-  color: white;
 }
 
 .dropdown-content .side-menu .side-menu-content {
@@ -47,6 +46,11 @@
   background: #75715e;
   right: -4rem;
   top: -2rem;
+  color: white;
+}
+
+.dropdown-content .side-menu:hover {
+  color: #272822;
 }
 
 .dropdown:hover .dropdown-content {
