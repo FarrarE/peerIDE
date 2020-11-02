@@ -11,8 +11,7 @@ function Header(props) {
         <div className="dropdown-content">
             <div className="option" >
                 <div id="upload">
-                <input type="file" id="file-selector" accept=".jpg, .jpeg, .png" />
-                    
+                    <input type="file" id="file-selector" accept=".txt,.js,.css,.scss," />
                 </div>
                 <p>Open File</p>
             </div>
@@ -34,7 +33,15 @@ function Header(props) {
 
     const Preferences =
         <div className="dropdown-content">
-            <div className="option" ><p>Theme</p></div>
+            <div className="option" >
+                <p>Theme</p>
+                <div className="side-menu" >
+                    <div className="side-menu-content">
+                        <div className="option"><p>Monokai</p></div>
+                        <div className="option"><p>Github</p></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     const Help =
