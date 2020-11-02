@@ -199,6 +199,10 @@ function App() {
     }
   }
 
+  function aboutHandler(){
+    alert("peerIDE\nVersion: 0.1\nAuthor: Ezra Farrar\nCopyright 2020 all rights reserved\n");
+  }
+
 
   return (
     <div className={"App " + theme}>
@@ -207,6 +211,8 @@ function App() {
         undo={undoHandler}
         redo={redoHandler}
         copy={copyHandler}
+
+        about={aboutHandler}
 
         theme={theme}
         setTheme={setThemeHandler}

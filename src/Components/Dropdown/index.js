@@ -52,7 +52,7 @@ function Header(props) {
 
     const Help =
         <div className="dropdown-content">
-            <div className="option" ><p>About</p></div>
+            <div className="option" onClick={props.about}><p>About</p></div>
         </div>
 
     const options = ["File", "Edit", "Preferences", "Help"];
