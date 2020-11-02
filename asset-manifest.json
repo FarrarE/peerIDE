@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/peerIDE/static/css/main.9c297d79.chunk.css",
-    "main.js": "/peerIDE/static/js/main.757e463e.chunk.js",
-    "main.js.map": "/peerIDE/static/js/main.757e463e.chunk.js.map",
+    "main.css": "/peerIDE/static/css/main.f3901188.chunk.css",
+    "main.js": "/peerIDE/static/js/main.3a1e7b13.chunk.js",
+    "main.js.map": "/peerIDE/static/js/main.3a1e7b13.chunk.js.map",
     "runtime-main.js": "/peerIDE/static/js/runtime-main.f7bd6e13.js",
     "runtime-main.js.map": "/peerIDE/static/js/runtime-main.f7bd6e13.js.map",
     "static/js/2.354bc19e.chunk.js": "/peerIDE/static/js/2.354bc19e.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.a54175fb.chunk.js": "/peerIDE/static/js/3.a54175fb.chunk.js",
     "static/js/3.a54175fb.chunk.js.map": "/peerIDE/static/js/3.a54175fb.chunk.js.map",
     "index.html": "/peerIDE/index.html",
-    "static/css/main.9c297d79.chunk.css.map": "/peerIDE/static/css/main.9c297d79.chunk.css.map",
+    "static/css/main.f3901188.chunk.css.map": "/peerIDE/static/css/main.f3901188.chunk.css.map",
     "static/js/2.354bc19e.chunk.js.LICENSE.txt": "/peerIDE/static/js/2.354bc19e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f7bd6e13.js",
     "static/js/2.354bc19e.chunk.js",
-    "static/css/main.9c297d79.chunk.css",
-    "static/js/main.757e463e.chunk.js"
+    "static/css/main.f3901188.chunk.css",
+    "static/js/main.3a1e7b13.chunk.js"
   ]
 }
