@@ -27,6 +27,7 @@ function Pages(props) {
                 onChange={onChange}
                 content={file.content}
                 index={index}
+                setEditor={props.setEditor}
             />
         </TabPanel>
     ));

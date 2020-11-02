@@ -15,13 +15,17 @@ themes.forEach(theme => require(`ace-builds/src-noconflict/theme-${theme}`));
 
 
 function EditWindow(props) {
-  const editor = useRef();
+  const editor = useRef(null);
 
-  let content;
+  useEffect(()=>{
+    props.setEditor(editor, props.name);
+  }, []);
+
   function onChange(newValue) {
-    content = newValue;
+    let content = newValue;
     props.onChange(props.fileName, props.name, content, props.index);
   }
+
   return (
     <div id="editor-wrapper">
       <AceEditor
