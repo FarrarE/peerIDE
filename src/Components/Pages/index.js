@@ -23,7 +23,7 @@ function Pages(props) {
                 file={file}
                 name={file.key}
                 mode="jsx"
-                theme="monokai"
+                theme={props.theme}
                 onChange={onChange}
                 content={file.content}
                 index={index}
