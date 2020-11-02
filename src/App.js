@@ -36,7 +36,7 @@ function App() {
   function onChangeHandler(content, key, index) {
     let newList = [...files];
 
-    if(redoIndex !== false){
+    if (redoIndex !== false) {
       history[selectedIndex].log.splice(redoIndex, history[selectedIndex].log.length);
       setRedoIndex(false);
     }
@@ -117,7 +117,7 @@ function App() {
 
     if (redoIndex !== false) {
       index = redoIndex;
-    } else  index = history[selectedIndex].log.length - 1;
+    } else index = history[selectedIndex].log.length - 1;
 
     if (index < 0)
       return;
@@ -136,6 +136,33 @@ function App() {
   }
 
   function redoHandler() {
+    if (selectedIndex === false)
+      return;
+
+    console.log("nope1")
+    if (history[selectedIndex] === undefined)
+      return;
+    console.log("nope2")
+
+    let index;
+
+    if (redoIndex !== false) {
+      index = redoIndex + 1;
+    } else return;
+    console.log("nope3")
+
+    if (index >= history[selectedIndex].log.length)
+      return;
+
+    let newList = [...files];
+
+    newList[selectedIndex].content = history[selectedIndex].log[index + 1];
+    console.log(history[selectedIndex].log[index + 1])
+
+    if (redoIndex !== false) {
+      setRedoIndex(redoIndex + 1);
+    } else setRedoIndex(index);
+    setFiles(newList);
   }
 
   function cutHandler() {
@@ -153,6 +180,7 @@ function App() {
       <Header
         download={downloadToFile}
         undo={undoHandler}
+        redo={redoHandler}
       />
       <Pages
         files={files}
