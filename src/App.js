@@ -168,20 +168,27 @@ function App() {
   }
 
   function cutHandler() {
+    if (selectedIndex === false)
+      return;
   }
 
   function copyHandler() {
+    if (selectedIndex === false)
+      return;
+
     let editor = files[selectedIndex].ref;
     const selectedText = editor.current.editor.getSelectedText();
     console.log(selectedText);
   }
 
   function pasteHandler() {
+    if (selectedIndex === false)
+      return;
   }
 
 
   function setThemeHandler(event) {
-      setTheme(event.target.innerHTML.toLowerCase().replaceAll(' ', '_'))  
+    setTheme(event.target.innerHTML.toLowerCase().replaceAll(' ', '_'))
   }
 
 
