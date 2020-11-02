@@ -26,6 +26,10 @@ function EditWindow(props) {
     props.onChange(props.fileName, props.name, content, props.index);
   }
 
+  function onSelectionChange(selection) {
+    const content = this.refs.aceEditor.editor.session.getTextRange(selection.getRange());
+  }
+
   return (
     <div id="editor-wrapper">
       <AceEditor
@@ -33,13 +37,16 @@ function EditWindow(props) {
         id={props.name}
         mode={props.mode}
         theme={props.theme}
-        onChange={onChange}
         name={props.name}
         editorProps={{ $blockScrolling: true }}
         showPrintMargin={false}
         height="95vh"
         width="100%"
         value={props.content}
+
+
+        onSelectChange={onSelectionChange}
+        onChange={onChange}
       />
     </div>
   );
