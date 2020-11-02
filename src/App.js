@@ -10,6 +10,7 @@ function App() {
   const [selectedIndex, setSelectedIndex] = useState(false);
   const [history, setHistory] = useState([]);
   const [redoIndex, setRedoIndex] = useState(false);
+  const [theme, setTheme] = useState("Monokai");
 
   useEffect(() => {
   }, []);
@@ -179,31 +180,39 @@ function App() {
   }
 
 
+  function setThemeHandler(event) {
+    console.log(event.target.innerHTML);
+  }
+
 
   function setEditor(ref, key) {
     for (let i = 0; i < files.length; ++i) {
       if (files[i].key === key)
         files[i].ref = ref
     }
-}
+  }
 
-return (
-  <div className="App">
-    <Header
-      download={downloadToFile}
-      undo={undoHandler}
-      redo={redoHandler}
-      copy={copyHandler}
-    />
-    <Pages
-      files={files}
-      newFile={newFileHandler}
-      onChange={onChangeHandler}
-      setSelected={setSelectedHandler}
-      setEditor={setEditor}
-    />
-  </div>
-);
+
+  return (
+    <div className="App">
+      <Header
+        download={downloadToFile}
+        undo={undoHandler}
+        redo={redoHandler}
+        copy={copyHandler}
+
+        setTheme={setThemeHandler}
+      />
+      <Pages
+        files={files}
+        theme={theme}
+        newFile={newFileHandler}
+        onChange={onChangeHandler}
+        setSelected={setSelectedHandler}
+        setEditor={setEditor}
+      />
+    </div>
+  );
 }
 
 export default App;

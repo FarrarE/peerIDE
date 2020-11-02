@@ -37,8 +37,8 @@ function Header(props) {
                 <p>Theme</p>
                 <div className="side-menu" >
                     <div className="side-menu-content">
-                        <div className="option"><p>Monokai</p></div>
-                        <div className="option"><p>Github</p></div>
+                        <div className="option" onClick={props.setTheme}><p>Monokai</p></div>
+                        <div className="option" onClick={props.setTheme}><p>Github</p></div>
                     </div>
                 </div>
             </div>
