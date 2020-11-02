@@ -148,7 +148,7 @@ function App() {
       index = redoIndex;
     } else return;
 
-    if (index >= history[selectedIndex].log.length)
+    if (index >= history[selectedIndex].log.length - 1)
       return;
 
     let newList = [...files];
