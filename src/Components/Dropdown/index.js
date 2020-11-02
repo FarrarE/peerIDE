@@ -9,7 +9,13 @@ function Header(props) {
 
     const File =
         <div className="dropdown-content">
-            <div className="option" ><p>Open File</p></div>
+            <div className="option" >
+                <div id="upload">
+                <input type="file" id="file-selector" accept=".jpg, .jpeg, .png" />
+                    
+                </div>
+                <p>Open File</p>
+            </div>
             <hr></hr>
             <div className="option" onClick={props.download}><p>Download File</p></div>
         </div>

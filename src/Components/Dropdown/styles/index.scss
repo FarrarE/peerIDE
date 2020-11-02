@@ -27,6 +27,10 @@
         background-color: grey;
         width:6rem;
     }
+    #upload{
+        position: absolute;
+        opacity: 0;
+    }
 }
 
 .dropdown:hover .dropdown-content {
