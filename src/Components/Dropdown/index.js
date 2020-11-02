@@ -36,7 +36,7 @@ function Header(props) {
             <div className="option" >
                 <p>Theme</p>
                 <div className="side-menu" >
-                    <div className="side-menu-content">
+                    <div className={"side-menu-content " + props.theme}>
                         <div className="option" onClick={props.setTheme}><p>Monokai</p></div>
                         <div className="option" onClick={props.setTheme}><p>Github</p></div>
                         <div className="option" onClick={props.setTheme}><p>Terminal</p></div>
@@ -60,7 +60,7 @@ function Header(props) {
 
     let menu = component[options.indexOf(props.title)];
     return (
-        <div id="dropdown-wrapper">
+        <div id="dropdown-wrapper" className={props.theme}>
             <div class="dropdown">
                 <span>{props.title}</span>
                 {menu}

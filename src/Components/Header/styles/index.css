@@ -18,6 +18,7 @@
   display: -ms-flexbox;
   display: flex;
   padding: 0.5rem;
+  background-color: inherit;
 }
 
 #header-wrapper #nav-left #home {
@@ -42,6 +43,7 @@
   margin-bottom: auto;
   font-weight: bold;
   padding: 0.1rem;
+  background-color: inherit;
 }
 
 #header-wrapper #nav-right {
@@ -56,26 +58,6 @@
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   padding: 0.5rem;
-}
-
-#header-wrapper #nav-right #link {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: auto;
-  margin-bottom: auto;
-  padding: 0.75rem;
-  height: 1rem;
-  border-radius: 0.25rem;
-}
-
-#header-wrapper #nav-right #login {
-  margin-left: 0.5rem;
-  font-weight: bold;
-  height: 1.5rem;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  margin-top: auto;
-  margin-bottom: auto;
+  background-color: inherit;
 }
 /*# sourceMappingURL=index.css.map */

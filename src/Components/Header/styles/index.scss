@@ -10,6 +10,7 @@
     #nav-left {
         display: flex;
         padding: 0.5rem;
+        background-color: inherit;
         #home {
             text-align: center;
             height: 2rem;
@@ -26,6 +27,7 @@
             margin-bottom: auto;
             font-weight: bold;
             padding: 0.1rem;
+            background-color: inherit;
         }
     }
     #nav-right {
@@ -33,22 +35,6 @@
         flex-direction: row;
         justify-content: space-evenly;
         padding: 0.5rem;
-        #link {
-            display: flex;
-            margin-top: auto;
-            margin-bottom: auto;
-            padding: 0.75rem;
-            height: 1rem;
-            border-radius: 0.25rem;
-        }
-        #login {
-            margin-left: 0.5rem;
-            font-weight: bold;
-            height: 1.5rem;
-            padding: 0.5rem;
-            border-radius: 0.25rem;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
+        background-color: inherit;
     }
 }

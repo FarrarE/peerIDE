@@ -1,27 +1,22 @@
-@import "../../../Themes/index.scss";
-
 .dropdown {
     position: relative;
     display: inline-block;
     margin: 0.5rem;
+    background-color: inherit;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    background: $comment;
-    z-index: 1;
+    z-index: 100;
     width: 7rem;
+    background-color: inherit;
     p {
         padding: 0.5rem;
         font-size: 0.8rem;
         font-weight: normal;
         margin: 0;
-    }
-    :hover {
-        background-color: $blue;
-        color: $background;
     }
     hr {
         background-color: grey;
@@ -35,15 +30,11 @@
     .side-menu {
         display: none;
         position: relative;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         .side-menu-content {
             position: absolute;
-            background: $comment;
             right: -4rem;
             top: -2rem;
-            color: $color;
-        }
-        &:hover{
-            color: $background;;
         }
     }
 }
