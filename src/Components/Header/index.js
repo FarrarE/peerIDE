@@ -10,9 +10,6 @@ function Header(props) {
     return (
         <div id="header-wrapper">
             <div id="nav-left">
-                <div id="home">
-                    <AiOutlineHome />
-                </div>
                 <div id="options">
                     <Dropdown download={props.download} title="File" />
                     <Dropdown title="Edit" undo={props.undo} redo={props.redo} copy={props.copy}/>
@@ -21,12 +18,6 @@ function Header(props) {
                 </div>
             </div>
             <div id="nav-right">
-                <div id="link">
-                    <ImLink />
-                </div>
-                <div id="login">
-                    Login
-                </div>
             </div>
         </div>
     );
