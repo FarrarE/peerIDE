@@ -10,7 +10,7 @@ function App() {
   const [selectedIndex, setSelectedIndex] = useState(false);
   const [history, setHistory] = useState([]);
   const [redoIndex, setRedoIndex] = useState(false);
-  const [theme, setTheme] = useState("Monokai");
+  const [theme, setTheme] = useState("monokai");
 
   useEffect(() => {
   }, []);
@@ -181,7 +181,7 @@ function App() {
 
 
   function setThemeHandler(event) {
-      setTheme(event.target.innerHTML.toLowerCase())  
+      setTheme(event.target.innerHTML.toLowerCase().replaceAll(' ', '_'))  
   }
 
 
@@ -194,13 +194,14 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className={"App " + theme}>
       <Header
         download={downloadToFile}
         undo={undoHandler}
         redo={redoHandler}
         copy={copyHandler}
 
+        theme={theme}
         setTheme={setThemeHandler}
       />
       <Pages
