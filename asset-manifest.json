@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/peerIDE/static/css/main.d7ae5b07.chunk.css",
-    "main.js": "/peerIDE/static/js/main.43330f33.chunk.js",
-    "main.js.map": "/peerIDE/static/js/main.43330f33.chunk.js.map",
-    "runtime-main.js": "/peerIDE/static/js/runtime-main.f7bd6e13.js",
-    "runtime-main.js.map": "/peerIDE/static/js/runtime-main.f7bd6e13.js.map",
-    "static/js/2.7b5f42a6.chunk.js": "/peerIDE/static/js/2.7b5f42a6.chunk.js",
-    "static/js/2.7b5f42a6.chunk.js.map": "/peerIDE/static/js/2.7b5f42a6.chunk.js.map",
-    "static/js/3.a54175fb.chunk.js": "/peerIDE/static/js/3.a54175fb.chunk.js",
-    "static/js/3.a54175fb.chunk.js.map": "/peerIDE/static/js/3.a54175fb.chunk.js.map",
+    "main.js": "/peerIDE/static/js/main.de90a52b.chunk.js",
+    "main.js.map": "/peerIDE/static/js/main.de90a52b.chunk.js.map",
+    "runtime-main.js": "/peerIDE/static/js/runtime-main.6c717b70.js",
+    "runtime-main.js.map": "/peerIDE/static/js/runtime-main.6c717b70.js.map",
+    "static/js/2.44f7ed1d.chunk.js": "/peerIDE/static/js/2.44f7ed1d.chunk.js",
+    "static/js/2.44f7ed1d.chunk.js.map": "/peerIDE/static/js/2.44f7ed1d.chunk.js.map",
+    "static/js/3.84f4c465.chunk.js": "/peerIDE/static/js/3.84f4c465.chunk.js",
+    "static/js/3.84f4c465.chunk.js.map": "/peerIDE/static/js/3.84f4c465.chunk.js.map",
     "index.html": "/peerIDE/index.html",
     "static/css/main.d7ae5b07.chunk.css.map": "/peerIDE/static/css/main.d7ae5b07.chunk.css.map",
-    "static/js/2.7b5f42a6.chunk.js.LICENSE.txt": "/peerIDE/static/js/2.7b5f42a6.chunk.js.LICENSE.txt"
+    "static/js/2.44f7ed1d.chunk.js.LICENSE.txt": "/peerIDE/static/js/2.44f7ed1d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f7bd6e13.js",
-    "static/js/2.7b5f42a6.chunk.js",
+    "static/js/runtime-main.6c717b70.js",
+    "static/js/2.44f7ed1d.chunk.js",
     "static/css/main.d7ae5b07.chunk.css",
-    "static/js/main.43330f33.chunk.js"
+    "static/js/main.de90a52b.chunk.js"
   ]
 }
