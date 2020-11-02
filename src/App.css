@@ -1,9 +1,40 @@
-.App {
-  color: white;
+.monokai {
   background-color: #272822;
+  color: white;
 }
 
-body {
-  background-color: #272822;
+.github {
+  background-color: #e8e8e8;
+  color: #000;
+}
+
+.terminal {
+  background-color: black;
+  color: #DEDEDE;
+}
+
+.tomorrow {
+  background-color: #f6f6f6;
+  color: #4D4D4C;
+}
+
+.twilight {
+  background-color: #232323;
+  color: #E2E2E2;
+}
+
+.textmate {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.solarized_dark {
+  background-color: #01313f;
+  color: #d0edf7;
+}
+
+.solarized_light {
+  background-color: #fbf1d3;
+  color: #333;
 }
 /*# sourceMappingURL=App.css.map */

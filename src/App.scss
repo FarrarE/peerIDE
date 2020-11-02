@@ -1,10 +1,44 @@
 @import "./Themes/index.scss";
 
 .App{
-    color:$color;
-    background-color: $background;
 }
 
-body{
-    background-color: $background;
+.monokai{
+    background-color: $monokai-background;
+    color:$monokai-color;
+}
+
+.github{
+    background-color: $github-background;
+    color:$github-color;
+}
+
+.terminal{
+    background-color: $terminal-background;
+    color:$terminal-color;
+}
+
+.tomorrow{
+    background-color: $tomorrow-background;
+    color:$tomorrow-color;
+}
+
+.twilight{
+    background-color: $twilight-background;
+    color:$twilight-color;
+}
+
+.textmate{
+    background-color: $textmate-background;
+    color:$textmate-color;
+}
+
+.solarized_dark{
+    background-color: $solarized_dark-background;
+    color:$solarized_dark-color;
+}
+
+.solarized_light{
+    background-color: $solarized_light-background;
+    color:$solarized_light-color;
 }
