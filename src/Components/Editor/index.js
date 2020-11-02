@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import AceEditor from "react-ace";
 import './styles/index.css';
@@ -15,6 +15,8 @@ themes.forEach(theme => require(`ace-builds/src-noconflict/theme-${theme}`));
 
 
 function EditWindow(props) {
+  const editor = useRef();
+
   let content;
   function onChange(newValue) {
     content = newValue;
@@ -23,6 +25,8 @@ function EditWindow(props) {
   return (
     <div id="editor-wrapper">
       <AceEditor
+        ref={editor}
+        id={props.name}
         mode={props.mode}
         theme={props.theme}
         onChange={onChange}
