@@ -59,7 +59,7 @@ function App() {
 
     // Base state, create history log
     if (!length) {
-      setHistory([{ key: key, log: [content] }]);
+      setHistory([{ key: key, log: ["",content] }]);
     } else {
       //Log exists so check for matching log
       for (let i = 0; i < length; ++i) {
@@ -119,9 +119,9 @@ function App() {
       index = redoIndex;
     } else index = history[selectedIndex].log.length - 1;
 
-    if (index < 0)
+    if (index < 0){
       return;
-
+    }
 
     let newList = [...files];
 
