@@ -24,7 +24,7 @@ function App() {
     }
 
     let newList = [...files];
-    let newFile = { fileName: "NewFile.txt", key: uuidv4(), index: null, content: "" }
+    let newFile = { fileName: "NewFile.txt", key: uuidv4(), index: null, content: "", ref: null }
     newList.push(newFile);
     setFiles(newList);
   }
@@ -170,27 +170,40 @@ function App() {
   }
 
   function copyHandler() {
+    let editor = files[selectedIndex].ref;
+    const selectedText = editor.current.editor.getSelectedText();
+    console.log(selectedText);
   }
 
   function pasteHandler() {
   }
 
 
-  return (
-    <div className="App">
-      <Header
-        download={downloadToFile}
-        undo={undoHandler}
-        redo={redoHandler}
-      />
-      <Pages
-        files={files}
-        newFile={newFileHandler}
-        onChange={onChangeHandler}
-        setSelected={setSelectedHandler}
-      />
-    </div>
-  );
+
+  function setEditor(ref, key) {
+    for (let i = 0; i < files.length; ++i) {
+      if (files[i].key === key)
+        files[i].ref = ref
+    }
+}
+
+return (
+  <div className="App">
+    <Header
+      download={downloadToFile}
+      undo={undoHandler}
+      redo={redoHandler}
+      copy={copyHandler}
+    />
+    <Pages
+      files={files}
+      newFile={newFileHandler}
+      onChange={onChangeHandler}
+      setSelected={setSelectedHandler}
+      setEditor={setEditor}
+    />
+  </div>
+);
 }
 
 export default App;
