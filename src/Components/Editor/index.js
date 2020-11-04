@@ -19,9 +19,9 @@ themes.forEach(theme => require(`ace-builds/src-noconflict/theme-${theme}`));
 function EditWindow(props) {
   const editor = useRef(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     props.setEditor(editor, props.name);
-  }, []);
+  }, [])
 
   function onChange(newValue) {
     let content = newValue;
@@ -31,6 +31,11 @@ function EditWindow(props) {
   function onSelectionChange(selection) {
     const content = this.refs.aceEditor.editor.session.getTextRange(selection.getRange());
   }
+
+  function test(){
+    props.undo()
+  }
+
 
   return (
     <div id="editor-wrapper">
@@ -49,6 +54,12 @@ function EditWindow(props) {
 
         onSelectChange={onSelectionChange}
         onChange={onChange}
+
+        commands={[{   // commands is array of key bindings.
+          name: 'undo', //name for the key binding.
+          bindKey: {win: 'Ctrl-Z', mac: 'Command-Z'}, //key combination used for the command.
+          exec: () => {test()}  //function to execute when keys are pressed.
+        }]}
       />
     </div>
   );

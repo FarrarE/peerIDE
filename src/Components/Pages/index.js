@@ -7,7 +7,6 @@ import './styles/index.css';
 
 
 function Pages(props) {
-
     function onChange(fileName, key, content, index) {
         props.onChange(content, key, index);
     }
@@ -27,6 +26,9 @@ function Pages(props) {
                 content={file.content}
                 index={index}
                 setEditor={props.setEditor}
+
+                undo={props.undo}
+                history={props.history}
             />
         </TabPanel>
     ));

@@ -13,7 +13,8 @@ function App() {
   const [theme, setTheme] = useState("monokai");
 
   useEffect(() => {
-  }, []);
+    console.log("dug")
+  }, [files]);
 
 
   function newFileHandler() {
@@ -111,9 +112,10 @@ function App() {
   // EDIT
 
   function undoHandler() {
+
     if (selectedIndex === false)
       return;
-
+    
     if (history[selectedIndex] === undefined)
       return;
 
@@ -224,6 +226,9 @@ function App() {
         onChange={onChangeHandler}
         setSelected={setSelectedHandler}
         setEditor={setEditor}
+
+        undo={undoHandler}
+        history={redoIndex}
       />
     </div>
   );
