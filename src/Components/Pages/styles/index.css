@@ -91,7 +91,6 @@
 
 .react-tabs__tab-panel {
   display: none;
-  background-color: black;
 }
 
 .react-tabs__tab-panel--selected {
