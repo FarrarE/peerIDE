@@ -7,23 +7,28 @@ import './styles/index.css';
 
 
 function Pages(props) {
+
+    useEffect(() => {
+    }, [])
+
+
     function onChange(fileName, key, content, index) {
         props.onChange(content, key, index);
     }
 
-    const listItems = props.files.map((file) => (
-        <Tab key={"tab" + file.key}>{file.fileName}</Tab>
+    const listItems = props.files.map((fileName, index) => (
+        <Tab key={"tab" + props.keys[index]}>{fileName}</Tab>
     ));
 
     const panelItems = props.files.map((file, index) => (
-        <TabPanel key={"panel" + file.key}>
+        <TabPanel key={"panel" + props.keys[index]}>
             <Editor
                 file={file}
-                name={file.key}
+                name={props.keys[index]}
                 mode="jsx"
                 theme={props.theme}
                 onChange={onChange}
-                content={file.content}
+                content={props.content[index]}
                 index={index}
                 setEditor={props.setEditor}
 

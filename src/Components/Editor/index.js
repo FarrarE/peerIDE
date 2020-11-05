@@ -18,6 +18,8 @@ themes.forEach(theme => require(`ace-builds/src-noconflict/theme-${theme}`));
 
 function EditWindow(props) {
   const editor = useRef(null);
+  const [reload, setReload] = useState(false);
+
 
   useEffect(() => {
     props.setEditor(editor, props.name);

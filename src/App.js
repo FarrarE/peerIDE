@@ -7,27 +7,28 @@ import './App.css';
 
 function App() {
   const [files, setFiles] = useState([]);
+  const [keys, setKeys] = useState([]);
+  const [content, setContent] = useState([]);
+  const [editor, setEditor] = useState([]);
+
   const [selectedIndex, setSelectedIndex] = useState(false);
   const [history, setHistory] = useState([]);
-  const [redoIndex, setRedoIndex] = useState(false);
+  const [redoIndex, setRedoIndex] = useState(-1);
   const [theme, setTheme] = useState("monokai");
 
   useEffect(() => {
-  }, []);
+  },[content, redoIndex]);
 
 
   function newFileHandler() {
-    if (!files)
-      return;
-
     if (!selectedIndex) {
       setSelectedIndex(0);
     }
 
-    let newList = [...files];
-    let newFile = { fileName: "NewFile.txt", key: uuidv4(), index: null, content: "", ref: null }
-    newList.push(newFile);
-    setFiles(newList);
+    setFiles(() => [...files, "NewFile.txt"]);
+    setContent(()=> [...content, ""]);
+    setHistory(() =>[...history, [""]])
+    setKeys(()=>[...keys, uuidv4()]);
   }
 
   function setSelectedHandler(index) {
@@ -35,54 +36,19 @@ function App() {
   }
 
   function onChangeHandler(content, key, index) {
-    let newList = [...files];
 
-    if (redoIndex !== false) {
-      history[selectedIndex].log.splice(redoIndex + 1, history[selectedIndex].log.length);
-      setRedoIndex(false);
-    }
-    updateHistory(key, content);
+    if(selectedIndex < 0)
+      return;
 
-    for (let i = 0; i < newList.length; ++i) {
-      if (newList[i].key === key) {
-        newList[i].content = content;
-        newList[i].index = index;
-      }
-    }
-    setFiles(newList);
-  }
-
-
-  // Updates the history state variable, tracking each change for each editor 
-  function updateHistory(key, content) {
-    let length = history.length;
-    let index = -1;
-
-    // Base state, create history log
-    if (!length) {
-      setHistory([{ key: key, log: ["", content] }]);
-    } else {
-      //Log exists so check for matching log
-      for (let i = 0; i < length; ++i) {
-        if (history[i].key === key) {
-          index = i;
-        }
-      }
-      // update matching log content or add new log if there is no matching log
-      if (index > -1)
-        history[index].log.push(content)
-      else setHistory(history => [...history, { key: key, log: [content] }]);
-    }
-    console.log(history)
-  }
-
-  function historyIndexOf(key) {
-    let index = -1;
-    for (let i = 0; i < history.length; ++i) {
-      if (history[i].key === key)
-        index = i;
-    }
-    return index;
+    
+    let newHistory = [...history];
+    newHistory[selectedIndex].push(content);
+    setHistory(newHistory);
+    
+    let newContent = [...this.content];
+    newContent[selectedIndex] = content;
+    setContent(newContent);
+    console.log(history);
   }
 
   // dropdown menu event handlers
@@ -98,10 +64,10 @@ function App() {
       return;
     }
     const a = document.createElement('a');
-    const file = new Blob([files[selectedIndex].content], { type: 'text/plain' });
+    const file = new Blob([content[selectedIndex]], { type: 'text/plain' });
 
     a.href = URL.createObjectURL(file);
-    a.download = files[selectedIndex].fileName;
+    a.download = files[selectedIndex];
     a.click();
 
     URL.revokeObjectURL(a.href);
@@ -111,59 +77,29 @@ function App() {
   // EDIT
 
   function undoHandler() {
-
-    if (selectedIndex === false)
-      return;
-    
-    if (history[selectedIndex] === undefined)
+    if(selectedIndex < 0)
       return;
 
-    let index;
+      
+    let index = -1;
+    if(redoIndex < 0){
+      index = history[selectedIndex].length - 1;
+      setRedoIndex(index);
+    } else index = redoIndex;
 
-    if (redoIndex !== false) {
-      index = redoIndex;
-    } else index = history[selectedIndex].log.length - 1;
-
-    if (index <= 0) {
+    if(redoIndex === 0)
       return;
-    }
 
-    let newList = [...files];
-
-    newList[selectedIndex].content = history[selectedIndex].log[index - 1];
-
-    if (redoIndex !== false) {
-      setRedoIndex(redoIndex - 1);
-    } else setRedoIndex(index - 1);
-
-    setFiles(newList);
+    --index;
+    setRedoIndex(index)
+    let newContent = [...content];
+    newContent[selectedIndex] = history[selectedIndex][index];
+    setContent(newContent);
+    console.log(newContent, redoIndex)
   }
 
 
   function redoHandler() {
-    if (selectedIndex === false)
-      return;
-
-    if (history[selectedIndex] === undefined)
-      return;
-
-    let index;
-
-    if (redoIndex !== false) {
-      index = redoIndex;
-    } else return;
-
-    if (index >= history[selectedIndex].log.length - 1)
-      return;
-
-    let newList = [...files];
-
-    newList[selectedIndex].content = history[selectedIndex].log[index + 1];
-
-    if (redoIndex !== false) {
-      setRedoIndex(redoIndex + 1);
-    } else setRedoIndex(index);
-    setFiles(newList);
   }
 
   function cutHandler() {
@@ -177,7 +113,6 @@ function App() {
 
     let editor = files[selectedIndex].ref;
     const selectedText = editor.current.editor.getSelectedText();
-    console.log(selectedText);
   }
 
   function pasteHandler() {
@@ -191,10 +126,10 @@ function App() {
   }
 
 
-  function setEditor(ref, key) {
-    for (let i = 0; i < files.length; ++i) {
-      if (files[i].key === key)
-        files[i].ref = ref
+  function setEditorHandler(ref, key) {
+    for (let i = 0; i < keys.length; ++i) {
+      if (keys[i] === key)
+        editor[i] = ref
     }
   }
 
@@ -218,11 +153,14 @@ function App() {
       />
       <Pages
         files={files}
+        content={content}
+        keys={keys}
+
         theme={theme}
         newFile={newFileHandler}
         onChange={onChangeHandler}
         setSelected={setSelectedHandler}
-        setEditor={setEditor}
+        setEditor={setEditorHandler}
 
         undo={undoHandler}
         history={redoIndex}
