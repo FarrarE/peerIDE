@@ -13,8 +13,7 @@ function App() {
   const [theme, setTheme] = useState("monokai");
 
   useEffect(() => {
-    console.log("dug")
-  }, [files]);
+  }, []);
 
 
   function newFileHandler() {
@@ -132,7 +131,6 @@ function App() {
     let newList = [...files];
 
     newList[selectedIndex].content = history[selectedIndex].log[index - 1];
-    console.log(index - 1, history[selectedIndex].log[index - 1])
 
     if (redoIndex !== false) {
       setRedoIndex(redoIndex - 1);
@@ -161,7 +159,6 @@ function App() {
     let newList = [...files];
 
     newList[selectedIndex].content = history[selectedIndex].log[index + 1];
-    console.log(index, history[selectedIndex].log[index + 1])
 
     if (redoIndex !== false) {
       setRedoIndex(redoIndex + 1);
