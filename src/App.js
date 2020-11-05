@@ -17,7 +17,7 @@ function App() {
   const [theme, setTheme] = useState("monokai");
 
   useEffect(() => {
-  },[content, redoIndex]);
+  },[]);
 
 
   function newFileHandler() {
