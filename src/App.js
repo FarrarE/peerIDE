@@ -55,7 +55,6 @@ function App() {
     let newContent = [...this.content];
     newContent[selectedIndex] = content;
     setContent(newContent);
-    console.log(history);
   }
 
   // dropdown menu event handlers
@@ -84,6 +83,8 @@ function App() {
   // EDIT
 
   function undoHandler() {
+
+    const cursorPosition = editor[selectedIndex].current;
     if (selectedIndex < 0)
       return;
 
@@ -101,7 +102,6 @@ function App() {
     let newContent = [...content];
     newContent[selectedIndex] = history[selectedIndex][index];
     setContent(newContent);
-    console.log(newContent, redoIndex)
   }
 
 
@@ -122,7 +122,6 @@ function App() {
     let newContent = [...content];
     newContent[selectedIndex] = history[selectedIndex][index];
     setContent(newContent);
-    console.log(newContent, redoIndex);
   }
 
   function cutHandler() {
