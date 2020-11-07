@@ -44,10 +44,9 @@ function App() {
     let newHistory = [...history];
 
     if (redoIndex !== -1){
-      newHistory[selectedIndex].splice(redoIndex, newHistory[selectedIndex].length)
+      newHistory[selectedIndex].splice(redoIndex + 1, newHistory[selectedIndex].length)
       setRedoIndex(-1);
     }
-
 
     newHistory[selectedIndex].push(content);
     setHistory(newHistory);
