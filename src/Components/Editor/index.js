@@ -23,11 +23,11 @@ function EditWindow(props) {
 
   useEffect(() => {
     props.setEditor(editor, props.name);
-    if(editor){
+    if (editor) {
       editor.current.editor.commands.addCommand({   // commands is array of key bindings.
         name: 'undo', //name for the key binding.
         bindKey: { win: 'Ctrl-z', mac: 'Command-z' }, //key combination used for the command.
-        exec: () => { props.undo() }  //function to execute when keys are pressed.
+        exec: () => { props.undo() },  //function to execute when keys are pressed.
       })
     }
   }, [props.content])
@@ -40,11 +40,6 @@ function EditWindow(props) {
   function onSelectionChange(selection) {
     const content = this.refs.aceEditor.editor.session.getTextRange(selection.getRange());
   }
-
-  function test(){
-    props.undo()
-  }
-
 
   return (
     <div id="editor-wrapper">
@@ -66,8 +61,13 @@ function EditWindow(props) {
 
         commands={[{   // commands is array of key bindings.
           name: 'undo', //name for the key binding.
-          bindKey: {win: 'Ctrl-Z', mac: 'Command-Z'}, //key combination used for the command.
-          exec: () => {test()}  //function to execute when keys are pressed.
+          bindKey: { win: 'Ctrl-Z', mac: 'Command-Z' }, //key combination used for the command.
+          exec: () => { props.undo() }
+        },  
+        {
+          name: 'redo',
+          bindKey: { win: 'Ctrl-Z', mac: 'Command-Z' },
+          exec: () => { props.redo() }
         }]}
       />
     </div>
