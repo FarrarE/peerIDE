@@ -23,14 +23,23 @@ function EditWindow(props) {
 
   useEffect(() => {
     props.setEditor(editor, props.name);
+    setBindings();
+  }, [props.content])
+
+  function setBindings(){
     if (editor) {
       editor.current.editor.commands.addCommand({   // commands is array of key bindings.
         name: 'undo', //name for the key binding.
         bindKey: { win: 'Ctrl-z', mac: 'Command-z' }, //key combination used for the command.
         exec: () => { props.undo() },  //function to execute when keys are pressed.
       })
+      editor.current.editor.commands.addCommand({   // commands is array of key bindings.
+        name: 'redo', //name for the key binding.
+        bindKey: { win: 'Ctrl-y', mac: 'Command-y' }, //key combination used for the command.
+        exec: () => { props.redo() },  //function to execute when keys are pressed.
+      })
     }
-  }, [props.content])
+  }
 
   function onChange(newValue) {
     let content = newValue;
@@ -66,7 +75,7 @@ function EditWindow(props) {
         },  
         {
           name: 'redo',
-          bindKey: { win: 'Ctrl-Z', mac: 'Command-Z' },
+          bindKey: { win: 'Ctrl-y', mac: 'Command-y' },
           exec: () => { props.redo() }
         }]}
       />
