@@ -28,6 +28,7 @@ function Pages(props) {
                 mode="jsx"
                 theme={props.theme}
                 onChange={onChange}
+                onCursorChange={props.onCursorChange}
                 content={props.content[index]}
                 index={index}
                 setEditor={props.setEditor}

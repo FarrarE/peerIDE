@@ -13,6 +13,7 @@ function App() {
 
   const [selectedIndex, setSelectedIndex] = useState(false);
   const [history, setHistory] = useState([]);
+  const [cursorHistory, setCursorHistory] = useState([]);
   const [redoIndex, setRedoIndex] = useState(-1);
   const [theme, setTheme] = useState("monokai");
 
@@ -56,6 +57,10 @@ function App() {
     setContent(newContent);
   }
 
+  function onCursorChangeHandler(cursor){
+    console.log(cursor);
+  }
+
   // dropdown menu event handlers
 
   function uploadFileHandler() {
@@ -81,8 +86,7 @@ function App() {
 
   // EDIT
 
-  function undoHandler() {
-
+  function undoHandler() {    
     const cursorPosition = editor[selectedIndex].current;
     if (selectedIndex < 0)
       return;
@@ -180,6 +184,7 @@ function App() {
         theme={theme}
         newFile={newFileHandler}
         onChange={onChangeHandler}
+        onCursorChange={onCursorChangeHandler}
         setSelected={setSelectedHandler}
         setEditor={setEditorHandler}
 

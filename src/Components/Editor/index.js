@@ -50,6 +50,11 @@ function EditWindow(props) {
     const content = this.refs.aceEditor.editor.session.getTextRange(selection.getRange());
   }
 
+  function onCursorChange(cursor){
+    const location = cursor.getCursor();
+    props.onCursorChange(location);
+  }
+
   return (
     <div id="editor-wrapper">
       <AceEditor
@@ -66,6 +71,7 @@ function EditWindow(props) {
 
 
         onSelectChange={onSelectionChange}
+        onCursorChange={onCursorChange}
         onChange={onChange}
 
         commands={[{   // commands is array of key bindings.
