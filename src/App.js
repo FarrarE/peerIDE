@@ -111,14 +111,13 @@ function App() {
 
     let index = -1;
     if (redoIndex < 0) {
-      index = history[selectedIndex].length - 1;
-      setRedoIndex(index);
+      return;
     } else index = redoIndex;
 
-    if (redoIndex === 0)
+    if (redoIndex === history[selectedIndex].length - 1)
       return;
 
-    --index;
+    ++index;
     setRedoIndex(index)
     let newContent = [...content];
     newContent[selectedIndex] = history[selectedIndex][index];
