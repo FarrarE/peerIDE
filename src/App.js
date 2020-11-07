@@ -17,7 +17,7 @@ function App() {
   const [theme, setTheme] = useState("monokai");
 
   useEffect(() => {
-  },[]);
+  }, []);
 
 
   function newFileHandler() {
@@ -26,25 +26,32 @@ function App() {
     }
 
     setFiles(() => [...files, "NewFile.txt"]);
-    setContent(()=> [...content, ""]);
-    setHistory(() =>[...history, [""]])
-    setKeys(()=>[...keys, uuidv4()]);
+    setContent(() => [...content, ""]);
+    setHistory(() => [...history, [""]])
+    setKeys(() => [...keys, uuidv4()]);
   }
 
   function setSelectedHandler(index) {
     setSelectedIndex(index);
+    setRedoIndex(-1);
   }
 
   function onChangeHandler(content, key, index) {
 
-    if(selectedIndex < 0)
+    if (selectedIndex < 0)
       return;
 
-    
     let newHistory = [...history];
+
+    if (redoIndex !== -1){
+      newHistory[selectedIndex].splice(redoIndex, newHistory[selectedIndex].length)
+      setRedoIndex(-1);
+    }
+
+
     newHistory[selectedIndex].push(content);
     setHistory(newHistory);
-    
+
     let newContent = [...this.content];
     newContent[selectedIndex] = content;
     setContent(newContent);
@@ -77,17 +84,16 @@ function App() {
   // EDIT
 
   function undoHandler() {
-    if(selectedIndex < 0)
+    if (selectedIndex < 0)
       return;
 
-      
     let index = -1;
-    if(redoIndex < 0){
+    if (redoIndex < 0) {
       index = history[selectedIndex].length - 1;
       setRedoIndex(index);
     } else index = redoIndex;
 
-    if(redoIndex === 0)
+    if (redoIndex === 0)
       return;
 
     --index;
@@ -100,6 +106,24 @@ function App() {
 
 
   function redoHandler() {
+    if (selectedIndex < 0)
+      return;
+
+    let index = -1;
+    if (redoIndex < 0) {
+      index = history[selectedIndex].length - 1;
+      setRedoIndex(index);
+    } else index = redoIndex;
+
+    if (redoIndex === 0)
+      return;
+
+    --index;
+    setRedoIndex(index)
+    let newContent = [...content];
+    newContent[selectedIndex] = history[selectedIndex][index];
+    setContent(newContent);
+    console.log(newContent, redoIndex);
   }
 
   function cutHandler() {
@@ -133,7 +157,7 @@ function App() {
     }
   }
 
-  function aboutHandler(){
+  function aboutHandler() {
     alert("peerIDE\nVersion: 0.1\nAuthor: Ezra Farrar\nCopyright 2020 all rights reserved\n");
   }
 
