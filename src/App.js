@@ -187,6 +187,7 @@ function App() {
         setEditor={setEditorHandler}
 
         undo={undoHandler}
+        redo={redoHandler}
         history={redoIndex}
       />
     </div>

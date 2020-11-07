@@ -33,6 +33,7 @@ function Pages(props) {
                 setEditor={props.setEditor}
 
                 undo={props.undo}
+                redo={props.redo}
                 history={props.history}
             />
         </TabPanel>
