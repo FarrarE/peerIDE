@@ -53,6 +53,7 @@ function EditWindow(props) {
   function onCursorChange(cursor){
     const location = cursor.getCursor();
     props.onCursorChange(location);
+    console.log("ding")
   }
 
   return (
@@ -68,7 +69,6 @@ function EditWindow(props) {
         height="95vh"
         width="100%"
         value={props.content}
-
 
         onSelectChange={onSelectionChange}
         onCursorChange={onCursorChange}

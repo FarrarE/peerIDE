@@ -44,7 +44,7 @@ function App() {
 
     let newHistory = [...history];
 
-    if (redoIndex !== -1){
+    if (redoIndex !== -1) {
       newHistory[selectedIndex].splice(redoIndex + 1, newHistory[selectedIndex].length)
       setRedoIndex(-1);
     }
@@ -57,8 +57,11 @@ function App() {
     setContent(newContent);
   }
 
-  function onCursorChangeHandler(cursor){
-    console.log(cursor);
+  function onCursorChangeHandler(cursor) {
+    if(redoIndex !== -1)
+      return;
+
+  
   }
 
   // dropdown menu event handlers
@@ -86,7 +89,7 @@ function App() {
 
   // EDIT
 
-  function undoHandler() {    
+  function undoHandler() {
     const cursorPosition = editor[selectedIndex].current;
     if (selectedIndex < 0)
       return;
@@ -120,7 +123,12 @@ function App() {
     if (redoIndex === history[selectedIndex].length - 1)
       return;
 
+
     ++index;
+
+    // sets cursor otherwise curso will not move on redo
+    editor[selectedIndex].current.editor.moveCursorTo(cursorHistory[selectedIndex][index].row, cursorHistory[selectedIndex][index].column);
+
     setRedoIndex(index)
     let newContent = [...content];
     newContent[selectedIndex] = history[selectedIndex][index];
